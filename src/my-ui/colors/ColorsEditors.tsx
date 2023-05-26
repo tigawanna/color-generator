@@ -27,21 +27,12 @@ export function ColorsEditors({}:ColorsEditorsProps){
     
     function updateColor(color:ColorResult['hsl'],key:keyof typeof colors){
         const hsl_string = hslObjectToString(color)
-        console.log("key update  ===== ",hsl_string)
+        // console.log("key update  ===== ",hsl_string)
         setColors({...colors, [key]:hsl_string})
     }
 
-    function handleOpenModal(color:any){
-        console.log("color  passde in ===== ",color)
-    }
 
-    function hslStringToObject(hsl_str:string){
-        //  check if string has hsl in it
-        if(hsl_str.includes('hsl')){
-            const hsl_values = hsl_str.split(',')
-            // return {h:parseInt(hsl_values[0]),s:parseInt(hsl_values[1]),l:parseInt(hsl_values[2])}
-        }
-    }
+
 
 return (
  <div className='w-full h-full flex flex-col items-center justify-center'>
@@ -57,21 +48,11 @@ updateColor={(color)=>updateColor(color, editing_color.key)}/>
 {color_vars.map(([key,value])=>{
     const hsl_values  = value.split(',')
     const hsl_string = `hsl(${value})`
-    const hsl_values_keys = hsl_values[0].split(" ")
-    
-    const hsl_obj: ColorResult['hsl'] = {
-        h:parseInt(hsl_values_keys[0]),
-        s:parseInt(hsl_values_keys[1]),
-        l:parseInt(hsl_values_keys[2])
-    }
 
-
-
-    // console.log("hsl string === ",hsl_values[0])
+// console.log("hsl string === ",hsl_values[0])
     return (
     <div key={key}
         onClick={()=>{
-            handleOpenModal(hsl_obj)
             setEditingColor({init_color:editing_color.init_color,key})
             setOpen(true)
         }}
