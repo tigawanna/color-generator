@@ -1,4 +1,4 @@
-import { hslObjectToString } from "@/utils/helpers/hsl";
+import { hslColorContrastGenerator, hslObjectToString } from "@/utils/helpers/hsl";
 import { X } from "lucide-react";
 import { useState } from "react";
 import { ColorResult, PhotoshopPicker, SwatchesPicker } from "react-color";
@@ -49,7 +49,11 @@ export function EditColorsModal({
             <PhotoshopPicker color={color} onChange={handleChange} />
             <SwatchesPicker color={color} onChange={handleChange} />
           </div>
+          <div className="w-full">
           <div className="rounded-lg bg-slate-900 p-3">{hslObjectToString(color)}</div>
+          <div className="rounded-lg bg-slate-900 p-3">{
+        }</div>
+            </div>
         </div>
       </div>
     </div>

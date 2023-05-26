@@ -1,3 +1,5 @@
+// @ts-expect-error
+import ContrastColor from 'contrast-color'
 
 export function hslStringToObject(hsl_str: string) {
     //  check if string has hsl in it
@@ -27,3 +29,20 @@ export function hslObjectToString(hsl_obj: { h: number, s: number, l: number , a
 
 
 
+export function hslColorContrastGenerator(bg_color:string,threshold:number){
+    if(!bg_color){
+        return bg_color
+    }
+    const cc = new ContrastColor({
+        bgColor: "navy",
+        fgDarkColor: "navy",
+        fgLightColor: "water",
+        customNamedColors: {
+            water: "#00D0FF",
+        },
+    });
+
+  const contrast_color = cc.contrastColor();
+  console.log(contrast_color)
+  return contrast_color
+}
