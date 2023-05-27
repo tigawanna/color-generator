@@ -8,7 +8,7 @@ const vercel_url = "https://devhub-brown.vercel.app";
 
 // export const pb_url=web1_url
 // export const main_url =vercel_url
-console.log("pb_url ===", import.meta.env.VITE_PB_URL, import.meta.env.VITE_SITE_URL)
+//no,log("pb_url ===", import.meta.env.VITE_PB_URL, import.meta.env.VITE_SITE_URL)
 
 export const pb_url = import.meta.env.VITE_PB_URL
 export const main_url = import.meta.env.VITE_SITE_URL

@@ -1,10 +1,13 @@
-// @ts-expect-error
-import ContrastColor from 'contrast-color'
+import tinycolor from "tinycolor2"
 
 export function hslStringToObject(hsl_str: string) {
     //  check if string has hsl in it
+    // const color = tinycolor(hsl_str).toHsl()
+    // return color
+    // //no,log("tinycolor hsl  ==",color)
     if (hsl_str.includes('hsl')) {
         const hsl_values = hsl_str.split('(')[1].replace(')', '').split(',')
+        //no,log(hsl_values)
        return{
             h:parseInt(hsl_values[0]),
             s:parseInt(hsl_values[1]),
@@ -12,6 +15,7 @@ export function hslStringToObject(hsl_str: string) {
         }
     }
     const hsl_values = hsl_str.split('(')
+    //no,log(hsl_values)
     return {
         h: parseInt(hsl_values[0]),
         s: parseInt(hsl_values[1]),
@@ -29,20 +33,3 @@ export function hslObjectToString(hsl_obj: { h: number, s: number, l: number , a
 
 
 
-export function hslColorContrastGenerator(bg_color:string,threshold:number){
-    if(!bg_color){
-        return bg_color
-    }
-    const cc = new ContrastColor({
-        bgColor: "navy",
-        fgDarkColor: "navy",
-        fgLightColor: "water",
-        customNamedColors: {
-            water: "#00D0FF",
-        },
-    });
-
-  const contrast_color = cc.contrastColor();
-  console.log(contrast_color)
-  return contrast_color
-}

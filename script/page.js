@@ -18,7 +18,7 @@ if (fs.existsSync(dirPath)) {
     process.exit(1);
 }
 
-console.log(kleur.green(`Creating directory ${lowercase_dirName}...`));
+//no,log(kleur.green(`Creating directory ${lowercase_dirName}...`));
 
 // create directory
 fs.mkdirSync(dirPath);
@@ -37,7 +37,7 @@ export function ${dirName}Layout({}: ${dirName}LayoutProps) {
 }`;
 
 fs.writeFileSync(`${dirPath}/${dirName}Layout.tsx`, layoutContent);
-console.log(kleur.green(`Directory ${dirName} layout created successfully!`));
+//no,log(kleur.green(`Directory ${dirName} layout created successfully!`));
 
 
 // create dirName.tsx file
@@ -52,7 +52,7 @@ export function ${dirName}({}: ${dirName}Props) {
 }`;
 
 fs.writeFileSync(`${dirPath}/${dirName}.tsx`, routeContent);
-console.log(kleur.green(`Route ${dirName}.tsx created successfully!`));
+//no,log(kleur.green(`Route ${dirName}.tsx created successfully!`));
 
 const configContent = `import { rootLayout } from "@/router/router";
 import { Route } from "@tanstack/router";
@@ -80,9 +80,9 @@ export const ${lowercase_dirName}Route = ${dirName}RouteLayout.addChildren([
 
 `;
 fs.writeFileSync(`${dirPath}/config.ts`, configContent);
-console.log(kleur.green(`Config ${dirName}.ts created successfully!`));
+//no,log(kleur.green(`Config ${dirName}.ts created successfully!`));
 
-console.log(kleur.blue("success"));
+//no,log(kleur.blue("success"));
 
 
 
@@ -129,7 +129,7 @@ const finalContent = lines.join("\n");
     "utf-8",
     (err) => {
       if (err) throw err;
-      console.log(
+      //no,log(
         `Added new line '${newLine}' above line '${targetLine}' in file '${filePath}'`
       );
     }
