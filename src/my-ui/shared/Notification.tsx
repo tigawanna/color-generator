@@ -21,8 +21,8 @@ return (
      
         ">
             {notification?.type=== "success"?(
-                <div className=" w-[90%] line-clamp-3 p-2 bg-green-100 border-2 border-green-800
-                         text-green-900  rounded-xl 
+                <div className=" w-[90%] line-clamp-3 p-2 bg-secondary border-2 border-accent-foreground
+                         text-secondary-foreground rounded-xl 
                        
                          ">
                  {notification.message}

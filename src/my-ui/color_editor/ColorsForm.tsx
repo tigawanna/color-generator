@@ -51,9 +51,9 @@ return (
           trigger={
           <button 
           className="bg-secondary text-accent-foreground hover:bg-accent px-5 rounded-lg">
-            Add variables</button>}>
+            enter variables</button>}>
           <textarea
-            className="h-auto min-h-[500px]  w-full  rounded-md bg-slate-900  "
+            className="h-auto min-h-[500px]  w-full  rounded-md bg-slate-900  p-5"
             value={color_variables}
             onChange={(e) => setColovariables(e.target.value)}
           />
