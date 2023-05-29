@@ -10,9 +10,10 @@ function App() {
   useLoadCSSvars()
   return (
     <div className="min-h-screen flex flex-col gap-2 items-center">
-      <div className='w-full flex gap-3 sticky top-0 h-10  hover:undeline border-b p-2 bg-secondary hover:text-accent-foreground'>
+      <div className='w-full flex gap-3 sticky top-0 h-10  hover:undeline 
+      border-b p-3 bg-secondary hover:text-accent-foreground'>
         <Link to="/">Home</Link> 
-        <Link to="/Colors">Colors</Link>
+        <Link to="/colors">Colors</Link>
 
       </div >
         <Outlet/>

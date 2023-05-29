@@ -1,4 +1,6 @@
-import { ColorsList } from "@/my-ui/color_editor/ColorsList";
+import { ColorList } from "@/my-ui/color_themes/ColorList";
+
+
 
 
 interface ColorsProps {}
@@ -6,7 +8,7 @@ interface ColorsProps {}
 export function Colors({}: ColorsProps) {
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <ColorsList/>
+      <ColorList/>
     </div>
   );
 }

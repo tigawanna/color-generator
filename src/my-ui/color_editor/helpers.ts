@@ -28,10 +28,15 @@ export function cssVariablesToJson(data:string){
 
 }
 
+export type CSSVariableList = [string, number[]][]
+export type CSSVariable = [string, number[]];
+
+export type CSSVariableGroup = {
+    [key: string]: CSSVariable[];
+};
 
 
-
-export function colorArrayToString(css_var_arr: [string | number, string | string[]][]) {
+export function colorArrayToString(css_var_arr:CSSVariableList) {
     const cssString = css_var_arr
         .map(([key, value]) => {
         if (typeof value === 'string') {
@@ -69,7 +74,7 @@ export function copyToClipboard(text: string, updateNotification: (notifocation:
 
 
 
-export function getcolorObjANdColorString(val: string | string[]) {
+export function getcolorObjANdColorString(val: string | number[]) {
     if (typeof val === "string") {
         const color_obj = hslStringToObjectTinyColor(val);
         const color_string = hslStringToValidHsl(val);
@@ -79,9 +84,9 @@ export function getcolorObjANdColorString(val: string | string[]) {
     }
     if (Array.isArray(val)) {
         const color_obj = {
-            h: parseInt(val[0]),
-            s: parseInt(val[1] + "%"),
-            l: parseInt(val[2] + "%")
+            h:val[0],
+            s: val[1],
+            l: val[2]
         }
         const color_string = hslObjectToStringtinyColor(color_obj);
         return {

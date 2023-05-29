@@ -47,8 +47,7 @@ return (
     <div className="flex h-full min-h-screen w-full flex-col  items-center justify-center gap-5 p-5">
       <div className="flex gap-3">
         <DialogWrapper
-
-          trigger={
+        trigger={
           <button 
           className="bg-secondary text-accent-foreground hover:bg-accent px-5 rounded-lg">
             enter variables</button>}>
