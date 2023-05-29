@@ -6,7 +6,7 @@ export function hslStringToObject(hsl_str: string) {
     // return color
     // //no,log("tinycolor hsl  ==",color)
     if (hsl_str.includes('hsl')) {
-        const hsl_values = hsl_str.split('(')[1].replace(')', '').split(',')
+        const hsl_values = hsl_str?.split('(')[1].replace(')', '')?.split(',')
         //no,log(hsl_values)
        return{
             h:parseInt(hsl_values[0]),
@@ -14,7 +14,7 @@ export function hslStringToObject(hsl_str: string) {
             l:parseInt(hsl_values[2])
         }
     }
-    const hsl_values = hsl_str.split('(')
+    const hsl_values = hsl_str?.split('(')
     //no,log(hsl_values)
     return {
         h: parseInt(hsl_values[0]),

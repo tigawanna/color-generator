@@ -17,17 +17,7 @@ color_foreground:boolean;
 
 export function ColorCard({color_obj,color_string,colors_arr,color_key,color_foreground,setColors}:ColorCardProps){
     
-    // function updateColor(color: ColorResult["hsl"], key: string, text: string) {
-    //     const hsl_string = hslObjectToStringtinyColor(color);
-    //     setColors((prev) => {
-    //         return { ...prev, [key]: hsl_string };
-    //     });
 
-    //     const parsed_hsl = hslStringToNewFormat(hsl_string);
-    //     if (typeof key === "string") {
-    //         document.documentElement.style.setProperty(key, parsed_hsl);
-    //     }
-    // }
 
 return (
     <div

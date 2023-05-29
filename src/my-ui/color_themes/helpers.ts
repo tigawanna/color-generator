@@ -3,14 +3,14 @@ import { hslObjectToStringtinyColor, hslStringToNewFormat, hslStringToObjectTiny
 
 export function cssVariablesToJson(data:string){
     // Step 1: Split the data string into an array of lines using the split() method.
-    const lines = data.split('\n');
+    const lines = data?.split('\n');
 
     // Step 2: Filter out any empty lines using the filter() method.
     const nonEmptyLines = lines.filter(line => line.trim() !== '');
 
     // Step 3: Map each line to an object with the key and an array of values.
     const objects = nonEmptyLines.map(line => {
-        const [key, ...values] = line.split(':');
+        const [key, ...values] = line?.split(':');
         return { [key?.trim()]: values[0]?.trim() };
     });
 

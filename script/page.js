@@ -96,7 +96,7 @@ const newArrayLine = `${lowercase_dirName}Route,`;
 fs.readFile(filePath, "utf-8", (err, content) => {
   if (err) throw err;
 
-  const lines = content.split("\n");
+  const lines = content?.split("\n");
 
   const targetIndex = lines.findIndex((line) =>
     line.includes(targetLine)

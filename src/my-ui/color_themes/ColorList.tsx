@@ -20,12 +20,12 @@ export function ColorList({}: ColorsListProps) {
       localStorage.setItem("color_variables", color_variables);
     }
   }, [color_variables]);
-  console.log("colors === ", color_json['--input'])
+
 
   function groupByVariableName(variables: CSSVariableList): CSSVariableGroup {
     return variables.reduce((groups: CSSVariableGroup, [name, value]: CSSVariable) => {
-      const group_by = name.split("--")[1].split("-");
-      const groupName = group_by[0];
+      const group_by = name?.split("--")[1]?.split("-");
+      const groupName = (group_by && group_by.length>0)?group_by[0]:""
       if (!groups[groupName]) {
         groups[groupName] = [];
       }
@@ -63,7 +63,7 @@ export function ColorList({}: ColorsListProps) {
         </button>
       </div>
 
-      <div className="flex w-full flex-wrap items-center justify-center gap-5 p-5">
+      <div className="flex w-full flex-wrap items-center justify-center gap-5 md:p-5 gap-1">
 
 
         {
@@ -74,9 +74,9 @@ export function ColorList({}: ColorsListProps) {
             key={key}
             className="w-full md:w-[40%] lg:w-[30%] shadow-md shadow-accent-foreground rounded-lg flex flex-col gap-1 p-2 ">
               <div className="text-lg font-bold">{key}</div>
-              <div className="w-full border flex gap-1 rounded">
+              <div className="w-full border flex flex-col md:flex-row gap-1 rounded">
               {value.map(([key, value]) => {
-               const is_foreground = key.split("--")[1].split("-")[0] === "foreground";
+               const is_foreground = key?.split("--")[1]?.split("-")[0] === "foreground";
                const { color_obj, color_string } = getcolorObjANdColorString(value);
                 return (
                   <ColorCard
