@@ -4,6 +4,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { hslObjectToStringtinyColor, hslStringToNewFormat } from "./colors";
 
+
 interface ColorEditProps {
   color_key:string;
   value: string;
@@ -23,11 +24,11 @@ export function ColorEditble({ value, bg_color, init_color, saveColor,color_key,
 
 
   function handleChange(new_color: ColorResult, event: React.ChangeEvent<HTMLInputElement>) {
-    setColor(new_color.hsl);
 
-    const hsl_string = hslObjectToStringtinyColor(color);
+    setColor(new_color.hsl);
+    const hsl_string = hslObjectToStringtinyColor(new_color.hsl);
     setColors((prev) => {
-      return { ...prev, [color_key]: hsl_string };
+     return { ...prev, [color_key]: hsl_string };
     });
 
     const parsed_hsl = hslStringToNewFormat(hsl_string);
@@ -46,7 +47,7 @@ export function ColorEditble({ value, bg_color, init_color, saveColor,color_key,
           onClick={() => setOpen(true)}
           className="h-full w-full cursor-pointer px-2 py-1 text-sm"
           style={{ backgroundColor: bg_color }}>
-          
+  
          <div className="bg-slate-900 w-fit rounded-xl px-2 p-1">{value}</div>
         </div>
       }>
@@ -65,11 +66,12 @@ export function ColorEditble({ value, bg_color, init_color, saveColor,color_key,
           <div
             style={{ backgroundColor: calculated_hsl_bg }}
             className="flex h-full w-full flex-col items-center justify-center gap-5  rounded-lg p-5">
+    
             <div className="flex w-full max-h-[70vh]  flex-wrap items-center justify-center gap-2 overflow-y-scroll rounded p-2 ">
               <SketchPicker color={color} onChange={handleChange} />
               <SwatchesPicker color={color} onChange={handleChange}/>
             </div>
-            <div className="">
+              <div className="">
               <div className="rounded-lg bg-slate-900 p-3">
                 {calculated_hsl_bg}
               </div>
