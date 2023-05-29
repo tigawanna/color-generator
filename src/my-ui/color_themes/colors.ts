@@ -22,10 +22,3 @@ export function hslStringToNewFormat(hslString: string) {
 
 
 
-
-// export function hslObjectToString(hsl_obj: { h: number, s: number, l: number, a?: number }, prefix = false) {
-//     if (prefix) {
-//         return `hsl(${Math.round(hsl_obj.h)}, ${Math.round(hsl_obj.s * 100)}%, ${Math.round(hsl_obj.l * 100)}%)`
-//     }
-//     return `${Math.round(hsl_obj.h)} ${Math.round(hsl_obj.s * 100)}%  ${Math.round(hsl_obj.l * 100)}%`
-// }
