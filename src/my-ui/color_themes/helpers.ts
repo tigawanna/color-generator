@@ -90,7 +90,7 @@ export function colorArrayToString(css_var_arr:CSSVariableList) {
     return cssString;
 }
 
-export function copyToClipboard(text: string) {
+export function copyToClipboard(text: string,theme:"dark"|"light") {
     const el = document.createElement('textarea');
     el.value = text;
     el.setAttribute('readonly', '');
@@ -108,7 +108,8 @@ export function copyToClipboard(text: string) {
     }
 
     if (success) {
-        localStorage.setItem('color_variables', text);
+        // localStorage.setItem('color_variables', text);
+        updateLocalStorageColorVariables(text,theme);
         // updateNotification({ message: 'Copied to clipboard', type: 'success' });
     } else {
         // updateNotification({ message: 'Failed to copy to clipboard', type: 'error' });
@@ -174,3 +175,24 @@ export function getReadableColor(background: HSLColor): HSLColor {
 }
 
 
+export function updateDocumentColorVariables(key: string,theme:"light"|"dark", value: string) {
+if(theme==="dark"){
+    console.log("setting dark mode");
+    document.documentElement.style.setProperty(`--${key}-dark`, value);
+}
+    document.documentElement.style.setProperty(key, value);
+}
+
+
+export function updateLocalStorageColorVariables(value: string,theme:"dark"|"light") {
+    if(theme == "dark"){
+        localStorage.setItem("dark_color_variables", value);
+    }
+    localStorage.setItem("color_variables", value);
+}
+// export function updateDocumentColorVariables(key: string, theme: 'light' | 'dark', value: string) {
+//     if (theme === 'dark') {
+//         document.documentElement.style.setProperty(`--${key}-dark`, value);
+//     }
+//     document.documentElement.style.setProperty(`--${key}-${theme}`, value);
+// }

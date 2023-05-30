@@ -11,6 +11,7 @@ import {
   colorArrayToString,
   getcolorObjANdColorString,
   default_variables,
+  updateLocalStorageColorVariables,
 } from "./helpers";
 import { useDarkTheme } from "@/utils/hooks/useDarkTheme";
 
@@ -24,10 +25,12 @@ export function ColorList({}: ColorsListProps) {
   const [color_json, setColors] = useState(cssVariablesToJson(color_variables));
   const [copy, setCopied] = useState(false);
   const{modeIcon:ThemeIcon,theme,toggleTheme}=useDarkTheme()
+
   useEffect(() => {
     setColors(cssVariablesToJson(color_variables));
     if (color_variables && color_variables !== "") {
-      localStorage.setItem("color_variables", color_variables);
+      // localStorage.setItem("color_variables", color_variables);
+      updateLocalStorageColorVariables(color_variables, theme);
     }
   }, [color_variables]);
 
@@ -71,13 +74,13 @@ export function ColorList({}: ColorsListProps) {
 
         <button
           onClick={() => {
+            copyToClipboard(colorArrayToString(colors_arr),theme);
             setCopied(true);
-            copyToClipboard(colorArrayToString(colors_arr));
           }}
           className="rounded-lg bg-secondary px-5 py-2 text-accent-foreground hover:brightness-125">
           {copy ? <div className="">copied</div> : <div className="">copy</div>}
         </button>
-        <ThemeIcon onClick={()=>toggleTheme()} />
+
       </div>
 
       <div className="flex w-[95%] flex-wrap items-center justify-center gap-1 p-2 @container md:gap-5 md:p-1">
@@ -90,6 +93,7 @@ export function ColorList({}: ColorsListProps) {
               <div className="text-lg font-bold">{key}</div>
               <div className="flex w-full flex-col gap-1 rounded-xl border">
                 {value.map(([key, value]) => {
+                  
                   function variableprimaryorForeground(group_key: string) {
                     const is_fore = group_key?.split("--")[1]?.split("-");
                     if (is_pair && is_fore.length === 1) {
@@ -112,6 +116,7 @@ export function ColorList({}: ColorsListProps) {
                       key={key}
                       colors_arr={colors_arr}
                       setColors={setColors}
+                      theme={theme}
                     />
                   );
                 })}

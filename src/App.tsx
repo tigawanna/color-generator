@@ -2,12 +2,15 @@
 import { Link, Outlet } from '@tanstack/router'
 import { Notification } from './my-ui/shared/Notification'
 import { useLoadCSSvars } from './utils/helpers/load_variables'
+import { useDarkTheme } from './utils/hooks/useDarkTheme'
 
 
 
 
 function App() {
-  useLoadCSSvars()
+  const { modeIcon: ThemeIcon, theme, toggleTheme } = useDarkTheme()
+  useLoadCSSvars(theme)
+
   return (
     <div className="min-h-screen flex flex-col gap-2 items-center">
       <div className='w-full flex gap-3 sticky top-0 h-10  hover:undeline 
@@ -16,6 +19,11 @@ function App() {
         <Link to="/colors">Colors</Link>
 
       </div >
+      <div className='flex gap-2 sticky top-2'>
+        <ThemeIcon onClick={() => toggleTheme()} className='' />
+        {theme}
+      </div>
+
         <Outlet/>
       <div className="w-full fixed bottom-3 flex items-center justify-center">
         <Notification />

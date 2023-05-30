@@ -1,10 +1,11 @@
 import { ColorEditble } from "./ColorEdit";
-import { CSSVariableList, colorArrayToString } from "./helpers";
+import { CSSVariableList, colorArrayToString, updateLocalStorageColorVariables } from "./helpers";
 
 
 interface ColorCardProps {
 color_key: string;
 color_string: string;
+theme:"light"|"dark"
 group_type: "foreground" | "primary" | "solo";
     color_json: {
         [x: string]: string;
@@ -18,7 +19,8 @@ colors_arr: CSSVariableList;
 setColors: React.Dispatch<React.SetStateAction<{[x: string]: string;}>>
 }
 
-export function ColorCard({color_obj,color_string,colors_arr,color_key,setColors,group_type,color_json}:ColorCardProps){
+export function ColorCard({
+    color_obj,color_string,colors_arr,color_key,setColors,group_type,color_json,theme}:ColorCardProps){
     
 return (
     <div
@@ -28,13 +30,14 @@ return (
 
         <ColorEditble
             color_key={color_key}
+            theme={theme}
             color_json={color_json}
             setColors={setColors}
             group_type={group_type}
             value={color_string}
             bg_color={color_string}
             init_color={color_obj}
-            saveColor={() => localStorage.setItem("color_variables", colorArrayToString(colors_arr))}
+            saveColor={() =>updateLocalStorageColorVariables(colorArrayToString(colors_arr),theme)}
            
         />
     </div>

@@ -1,11 +1,15 @@
 
 import { hslStringToNewFormat } from "@/my-ui/color_themes/colors";
-import { CSSVariableList, cssVariablesToJson, getcolorObjANdColorString } from "@/my-ui/color_themes/helpers";
+import { CSSVariableList, cssVariablesToJson, default_variables, getcolorObjANdColorString } from "@/my-ui/color_themes/helpers";
 import { useEffect, useState } from "react";
 
-export function useLoadCSSvars(){
+export function useLoadCSSvars(theme:"dark"|"light"){
+
     const [color_variables, setColovariables] = useState(() => {
-        return localStorage.getItem("color_variables") || "";
+        if(theme==="dark"){
+            return localStorage.getItem("dark_color_variables") || default_variables;
+        }
+        return localStorage.getItem("color_variables") || default_variables;
     });
     const [color_json, setColors] = useState(cssVariablesToJson(color_variables));
     useEffect(() => {
@@ -17,7 +21,7 @@ export function useLoadCSSvars(){
                 document.documentElement.style.setProperty(key, parsed_hsl);
             }
         })
-    },[])
+    },[theme])
 
 
 
