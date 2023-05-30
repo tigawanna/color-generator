@@ -90,20 +90,45 @@ export function colorArrayToString(css_var_arr:CSSVariableList) {
     return cssString;
 }
 
+export function copyToClipboard(text: string) {
+    const el = document.createElement('textarea');
+    el.value = text;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    let success = false;
+    try {
+        success = document.execCommand('copy');
+    } catch (err) {
+        console.error('Error copying to clipboard:', err);
+    } finally {
+        document.body.removeChild(el);
+    }
 
-export function copyToClipboard(text: string, updateNotification: (notifocation: NotificationType) => void
-) {
-    navigator.clipboard.writeText(text)
-        .then(() => {
-            // console.log('Copied to clipboard:', text)
-            localStorage.setItem("color_variables", text);
-            updateNotification({message: "Copied to clipboard", type: "success"});
-        })
-        .catch((error) => {
-            updateNotification({message: "Failed to copy to clipboard :"+error, type: "error"});
-            console.error('Error copying to clipboard:', error)
-        });
+    if (success) {
+        localStorage.setItem('color_variables', text);
+        // updateNotification({ message: 'Copied to clipboard', type: 'success' });
+    } else {
+        // updateNotification({ message: 'Failed to copy to clipboard', type: 'error' });
+    }
 }
+
+
+// export function copyToClipboard(text: string, updateNotification: (notifocation: NotificationType) => void
+// ) {
+//     navigator.clipboard.writeText(text)
+//         .then(() => {
+//             // console.log('Copied to clipboard:', text)
+//             localStorage.setItem("color_variables", text);
+//             updateNotification({message: "Copied to clipboard", type: "success"});
+//         })
+//         .catch((error) => {
+//             updateNotification({message: "Failed to copy to clipboard :"+error, type: "error"});
+//             console.error('Error copying to clipboard:', error)
+//         });
+// }
 
 
 

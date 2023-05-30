@@ -1,4 +1,4 @@
-import { ColorResult, HSLColor, SketchPicker, SwatchesPicker } from "react-color";
+import { ColorResult, CompactPicker, HSLColor, SketchPicker, SliderPicker, SwatchesPicker } from "react-color";
 import { DialogWrapper } from "../../shadcn/DialogWrapper";
 import { useState } from "react";
 import { X } from "lucide-react";
@@ -35,7 +35,7 @@ export function ColorEditble({
 }: ColorEditProps) {
   const [open, setOpen] = useState(false);
   const [color, setColor] = useState<HSLColor>(init_color);
-  const [key, stColorKey] = useState(color_key);
+  const [key, setColorKey] = useState(color_key);
 
   function handleChange(new_color: ColorResult, event: React.ChangeEvent<HTMLInputElement>) {
     setColor(new_color.hsl);
@@ -67,10 +67,11 @@ export function ColorEditble({
       trigger={
         <div
           onClick={() => setOpen(true)}
+          className=" cursor-pointer text-xs md:text-sm hover:brightness-150 flex items-center justify-center p-1">
+          <div className="w-full rounded-xl  p-1 px-2">{value}</div>
+          <div 
           style={{ backgroundColor: bg_color }}
-          className="h-full w-full cursor-pointer px-2 py-1 text-sm hover:scale-105 hover:brightness-150"
-          >
-          <div className="w-fit rounded-xl bg-slate-900 text-slate-50 p-1 px-2">{value}</div>
+          className="w-4 h-4 rounded-lg "></div>
         </div>
       }>
 
@@ -99,9 +100,16 @@ export function ColorEditble({
                 {" "}
               </div>
             </div>
-            <div className="flex max-h-[70vh] w-full  flex-wrap items-center justify-center gap-2 overflow-y-scroll rounded p-2 ">
+            <div className="hidden md:flex max-h-[70vh] w-full  flex-wrap items-center justify-center gap-2 overflow-y-scroll rounded p-2 ">
               <SketchPicker color={color} onChange={handleChange} />
               <SwatchesPicker color={color} onChange={handleChange} />
+            </div>
+     
+            <div className="md:hidden  flex flex-col gap-2">
+              <CompactPicker color={color} onChange={handleChange} />
+            </div>
+            <div className="w-full">
+              <SliderPicker color={color} onChange={handleChange} />
             </div>
 
             <div className="flex gap-3">
