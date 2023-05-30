@@ -14,6 +14,7 @@ import {
   updateLocalStorageColorVariables,
 } from "./helpers";
 import { useDarkTheme } from "@/utils/hooks/useDarkTheme";
+import { ColorVariables } from "./ColorVariables";
 
 interface ColorsListProps {}
 
@@ -57,9 +58,10 @@ export function ColorList({}: ColorsListProps) {
   const grouped_variables = Object.entries(groupByVariableName(colors_arr));
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-start">
+    <div className="flex h-full w-full flex-col items-center justify-start gap-5 p-5">
       <div className="flex gap-3 items-center justify-center">
-        <DialogWrapper
+       
+        {/* <DialogWrapper
           trigger={
             <button className="rounded-lg bg-secondary px-5 py-2 text-accent-foreground hover:bg-accent hover:brightness-125">
               enter variables
@@ -70,7 +72,7 @@ export function ColorList({}: ColorsListProps) {
             value={color_variables}
             onChange={(e) => setColovariables(e.target.value)}
           />
-        </DialogWrapper>
+        </DialogWrapper> */}
 
         <button
           onClick={() => {
@@ -82,14 +84,19 @@ export function ColorList({}: ColorsListProps) {
         </button>
 
       </div>
+      
+      
+      
+      <div className="flex h-full md:flex-row flex-col-reverse  w-full items-start justify-evenly">
+      <ColorVariables/>
 
-      <div className="flex w-[95%] flex-wrap items-center justify-center gap-1 p-2 @container md:gap-5 md:p-1">
+      <div className="flex w-[95%] max-h-[500px] md:w-[40%] flex-wrap items-center justify-center gap-1 p-2 md:gap-5 md:p-1 overflow-y-scroll">
         {grouped_variables.map(([key, value]) => {
           const is_pair = value.length === 2;
           return (
             <div
               key={key}
-              className="flex w-full flex-col rounded-lg p-2 shadow-md shadow-accent-foreground @md:w-[40%] @lg:w-[30%] ">
+              className="flex w-full flex-col rounded-lg p-2 shadow-md shadow-accent-foreground">
               <div className="text-lg font-bold">{key}</div>
               <div className="flex w-full flex-col gap-1 rounded-xl border">
                 {value.map(([key, value]) => {
@@ -124,6 +131,7 @@ export function ColorList({}: ColorsListProps) {
             </div>
           );
         })}
+      </div>
       </div>
     </div>
   );

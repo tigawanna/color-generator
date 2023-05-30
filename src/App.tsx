@@ -3,13 +3,13 @@ import { Link, Outlet } from '@tanstack/router'
 import { Notification } from './my-ui/shared/Notification'
 import { useLoadCSSvars } from './utils/helpers/load_variables'
 import { useDarkTheme } from './utils/hooks/useDarkTheme'
+import { useZustandTheme } from './utils/hooks/useZustandTheme'
 
 
 
 
 function App() {
-  const { modeIcon: ThemeIcon, theme, toggleTheme } = useDarkTheme()
-  useLoadCSSvars(theme)
+const{ThemeIcon,theme,toggleTheme}=useZustandTheme()
 
   return (
     <div className="min-h-screen flex flex-col gap-2 items-center">

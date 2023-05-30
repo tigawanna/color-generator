@@ -12,6 +12,7 @@ export function useLoadCSSvars(theme:"dark"|"light"){
         return localStorage.getItem("color_variables") || default_variables;
     });
     const [color_json, setColors] = useState(cssVariablesToJson(color_variables));
+    
     useEffect(() => {
     const colors_arr = Object.entries(color_json) as unknown as CSSVariableList
         colors_arr.map(([key, value]) => {
