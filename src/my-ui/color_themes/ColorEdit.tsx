@@ -1,4 +1,4 @@
-import { ColorResult, HSLColor, SketchPicker, SwatchesPicker } from "react-color";
+import { ColorResult, HSLColor, SketchPicker, SliderPicker, SwatchesPicker } from "react-color";
 import { DialogWrapper } from "../../shadcn/DialogWrapper";
 import { useState } from "react";
 import { X } from "lucide-react";
@@ -106,9 +106,15 @@ export function ColorEditble({
                 {" "}
               </div>
             </div>
-            <div className="flex max-h-[70vh] w-full  flex-wrap items-center justify-center gap-2 overflow-y-scroll rounded p-2 ">
+            <div className="flex max-h-[70vh] w-full  items-center justify-center gap-2 overflow-y-scroll rounded p-2 ">
               <SketchPicker color={color} onChange={handleChange} />
+              <div className="hidden md:flex">
               <SwatchesPicker color={color} onChange={handleChange} />
+              </div>
+
+            </div>
+          <div className="w-full">
+              <SliderPicker color={color} onChange={handleChange} />
             </div>
 
             <div className="flex gap-3">
