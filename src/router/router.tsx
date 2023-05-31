@@ -1,12 +1,11 @@
 import App from "../App";
-import { Router,RootRoute,} from "@tanstack/router";
+import { Router, RootRoute } from "@tanstack/router";
 import { routes } from "./routes";
 
 // Create a root route
 export const rootLayout = new RootRoute({
   component: App,
 });
-
 
 // Create the route tree using your routes
 const routeTree = rootLayout.addChildren(routes);

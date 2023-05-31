@@ -13,10 +13,8 @@ import ErrorBoundary from "./components/wrappers/ErrorBoundary";
 
 const queryClient: QueryClient = new QueryClient({
   mutationCache: new MutationCache({
-    onSuccess: async (data,variable,context,mutation) => {
-      if (
-        Array.isArray(mutation.meta?.invalidates)
-      ) {
+    onSuccess: async (data, variable, context, mutation) => {
+      if (Array.isArray(mutation.meta?.invalidates)) {
         return queryClient.invalidateQueries({
           queryKey: mutation.meta?.invalidates,
         });
@@ -35,9 +33,7 @@ const queryClient: QueryClient = new QueryClient({
   },
 });
 
-ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <React.StrictMode>

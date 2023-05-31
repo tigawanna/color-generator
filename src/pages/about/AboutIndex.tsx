@@ -1,23 +1,13 @@
 import { AccordionDemo } from "@/components/AccordionDemo";
 
-interface AboutIndexProps {
+interface AboutIndexProps {}
 
-}
-
-export function About({}:AboutIndexProps){
-return (
- <div className='w-full h-full flex items-center justify-center'>
-    <div className="w-[30%]">
+export function About({}: AboutIndexProps) {
+  return (
+    <div className="flex h-full w-full items-center justify-center">
+      <div className="w-[30%]">
         <AccordionDemo />
+      </div>
     </div>
-
- </div>
-);
+  );
 }
-
-
-
-
-
-
-

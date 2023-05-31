@@ -5,20 +5,16 @@ import { ColorsLayout } from "./ColorsLayout";
 
 //Colors route layout
 const ColorsRouteLayout = new Route({
-    getParentRoute: () => rootLayout,
-    path: "/colors",
-    component: ColorsLayout,
+  getParentRoute: () => rootLayout,
+  path: "/colors",
+  component: ColorsLayout,
 });
 
 //Colors default route
 const ColorsIndexRoute = new Route({
-    getParentRoute: () => ColorsRouteLayout,
-    path: "/",
-    component: Colors,
+  getParentRoute: () => ColorsRouteLayout,
+  path: "/",
+  component: Colors,
 });
 
-
-export const colorsRoute = ColorsRouteLayout.addChildren([
-    ColorsIndexRoute,
-])
-
+export const colorsRoute = ColorsRouteLayout.addChildren([ColorsIndexRoute]);

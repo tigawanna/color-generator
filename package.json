@@ -7,6 +7,7 @@
     "dev": "vite --port 3000",
     "build": "tsc && vite build",
     "preview": "vite preview --port 3000",
+    "format": "prettier --write --ignore-unknown src",
     "page": "node script/page.js",
     "upgrade-deps": "npm install -g npm-check-updates && ncu -u && npm install"
   },

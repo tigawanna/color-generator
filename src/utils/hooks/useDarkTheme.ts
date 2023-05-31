@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Moon,Sun} from "lucide-react"
+import { Moon, Sun } from "lucide-react";
 // import { useLocalStoreValues } from "./../store";
 
 export const useDarkTheme = () => {
   const [theme, setTheme] = useState<"light" | "dark">(
-    typeof window !== 'undefined' ? (localStorage.theme ?? 'dark') : 'dark');
+    typeof window !== "undefined" ? localStorage.theme ?? "dark" : "dark"
+  );
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -32,7 +33,7 @@ export const useDarkTheme = () => {
   }, [theme]);
 
   const nextTheme = theme === "dark" ? "light" : "dark";
-  const modeIcon = theme === "dark" ? Sun :Moon;
+  const modeIcon = theme === "dark" ? Sun : Moon;
   const toggleTheme = () => {
     setTheme(nextTheme);
   };

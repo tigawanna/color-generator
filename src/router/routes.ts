@@ -4,9 +4,5 @@ import { colorsRoute } from "@/pages/colors/config";
 // ADD NEW IMPORT HERE
 
 // START
-export const routes = [
-colorsRoute,
-indexRoute,
-aboutRoute,
-]
+export const routes = [colorsRoute, indexRoute, aboutRoute];
 // END

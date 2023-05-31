@@ -4,20 +4,17 @@ import { About } from "./AboutIndex";
 import { Aboutlayout } from "./Aboutlayout";
 
 const aboutLayout = new Route({
-    getParentRoute: () => rootLayout,
-    path: "/about",
-    component: Aboutlayout,
+  getParentRoute: () => rootLayout,
+  path: "/about",
+  component: Aboutlayout,
 });
 
-
 const aboutIndexRoute = new Route({
-    getParentRoute: () => aboutLayout,
-    path: "/",
-    component: About,
+  getParentRoute: () => aboutLayout,
+  path: "/",
+  component: About,
 });
 
 // about layout
 
-export const aboutRoute = aboutLayout.addChildren([
-    aboutIndexRoute,
-])
+export const aboutRoute = aboutLayout.addChildren([aboutIndexRoute]);
