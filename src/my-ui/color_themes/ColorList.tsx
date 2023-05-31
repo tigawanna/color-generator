@@ -70,8 +70,8 @@ export function ColorList({}: ColorsListProps) {
           return (
             <div 
             key={key}
-            className="w-full md:w-[40%] lg:w-[30%] shadow-md shadow-accent-foreground rounded-lg flex flex-col gap-1 p-2 ">
-              <div className="text-lg font-bold">{key}</div>
+            className="w-full md:w-[40%]  shadow-md shadow-accent-foreground rounded-lg flex flex-col gap-1 p-1 ">
+              <div className="font-bold">{key}</div>
               <div className="w-full border flex flex-col md:flex-row gap-1 rounded">
               {value.map(([key, value]) => {
 

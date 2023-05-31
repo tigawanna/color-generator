@@ -68,7 +68,7 @@ export function ColorEditble({
       trigger={
         <div
           onClick={() => setOpen(true)}
-        className="h-full  cursor-pointer px-2 py-1 text-sm hover:brightness-150 flex">
+        className="h-full cursor-pointer px-2 py-1 text-sm hover:brightness-150 animate-pulse flex">
 
       <div className="w-4 h-4">
             <Tooltipwrapper message={value}>
