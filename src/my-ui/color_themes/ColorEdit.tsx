@@ -29,6 +29,7 @@ interface ColorEditProps {
   color_json: {
     [x: string]: string;
   };
+  updateClass(k: string, v: string): void
 }
 
 export function ColorEditble({
@@ -39,6 +40,7 @@ export function ColorEditble({
   color_key,
   setColors,
   group_type,
+  updateClass,
   theme,
   color_json,
 }: ColorEditProps) {
@@ -64,6 +66,8 @@ export function ColorEditble({
     if (typeof key === "string") {
         updateDocumentColorVariables(parsed_hsl,theme, key);
     }
+    console.log("parsed hsl  === ",parsed_hsl)
+
     saveColor();
   }
 
@@ -88,6 +92,7 @@ export function ColorEditble({
           <div
             onClick={(e) => {
               saveColor();
+              document.documentElement.style.setProperty('--backgound',"182, 82%, 27%");
               setOpen(false);
             }}
             className="absolute right-3 top-2 flex cursor-pointer items-center justify-center rounded-full bg-slate-900 p-2 text-slate-50 hover:bg-red-800">

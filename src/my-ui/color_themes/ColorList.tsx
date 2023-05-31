@@ -15,17 +15,20 @@ import {
 } from "./helpers";
 import { useDarkTheme } from "@/utils/hooks/useDarkTheme";
 import { ColorVariables } from "./ColorVariables";
+import { useColorJson } from "@/state/utils/UseColorVariables";
 
 interface ColorsListProps {}
 
 export function ColorList({}: ColorsListProps) {
+
   const [color_variables, setColovariables] = useState(() => {
     return localStorage.getItem("color_variables") || default_variables;
   });
-
-  const [color_json, setColors] = useState(cssVariablesToJson(color_variables));
+  const [bg_class, setBgClass] = useState({ k: "--background", v:'354, 100%, 90%'});
+  // const [color_json, setColors] = useState(cssVariablesToJson(color_variables));
+  const {color_json,setColors}=useColorJson(color_variables);
   const [copy, setCopied] = useState(false);
-  const{modeIcon:ThemeIcon,theme,toggleTheme}=useDarkTheme()
+  const{theme}=useDarkTheme()
 
   useEffect(() => {
     setColors(cssVariablesToJson(color_variables));
@@ -42,6 +45,19 @@ export function ColorList({}: ColorsListProps) {
     return () => clearTimeout(timeout_id);
   }, [copy]);
 
+  // useEffect(() => {
+ 
+  //   Object.entries(color_json).forEach(([key, value]) => {
+  //     const { color_string } = getcolorObjANdColorString(value);
+  //     const output = color_string
+  //       .replace(/^hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)$/, "$1,$2% $3%")
+  //       .replace(/,/g, " ");
+
+  //     console.log("color_string", output);
+  //     document.documentElement.style.setProperty(key, output);
+  //   })
+  // },[color_json])
+
   function groupByVariableName(variables: CSSVariableList): CSSVariableGroup {
     return variables.reduce((groups: CSSVariableGroup, [name, value]: CSSVariable) => {
       const group_by = name?.split("--")[1]?.split("-");
@@ -56,6 +72,19 @@ export function ColorList({}: ColorsListProps) {
 
   const colors_arr = Object.entries(color_json) as unknown as CSSVariableList;
   const grouped_variables = Object.entries(groupByVariableName(colors_arr));
+function updateBgClass(){
+  setBgClass(prev=>{
+    if (prev.v === '154, 50%, 60%'){
+      return { k: prev.k, v:'354, 100%, 90%' }
+    }
+    return { k: prev.k, v: '154, 50%, 60%' }
+  })
+  document.documentElement.style.setProperty(bg_class.k,bg_class.v);
+}
+
+function updateClass(k:string,v:string){
+  document.documentElement.style.setProperty(k,v);
+}
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-start gap-5 p-5">
@@ -82,7 +111,9 @@ export function ColorList({}: ColorsListProps) {
           className="rounded-lg bg-secondary px-5 py-2 text-accent-foreground hover:brightness-125">
           {copy ? <div className="">copied</div> : <div className="">copy</div>}
         </button>
-
+      <button
+      onClick={updateBgClass} 
+      className="p-3 bg-slate-600 ">background</button>
       </div>
       
       
@@ -123,6 +154,7 @@ export function ColorList({}: ColorsListProps) {
                       key={key}
                       colors_arr={colors_arr}
                       setColors={setColors}
+                      updateClass={updateClass}
                       theme={theme}
                     />
                   );

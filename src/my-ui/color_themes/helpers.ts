@@ -177,10 +177,6 @@ export function getReadableColor(background: HSLColor): HSLColor {
 
 export function updateDocumentColorVariables(key: string,theme:"light"|"dark", value: string) {
     console.log(theme,value);
-if(theme==="dark"){
-    console.log("setting dark mode");
-    document.documentElement.style.setProperty(`--${key}-dark`, value);
-}
     document.documentElement.style.setProperty(key, value);
 }
 

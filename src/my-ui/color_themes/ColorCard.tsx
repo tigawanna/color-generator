@@ -15,12 +15,13 @@ color_obj: {
         s: number;
         l: number;
     }
-colors_arr: CSSVariableList;
+    colors_arr: CSSVariableList; 
+    updateClass(k: string, v: string): void
 setColors: React.Dispatch<React.SetStateAction<{[x: string]: string;}>>
 }
 
 export function ColorCard({
-    color_obj,color_string,colors_arr,color_key,setColors,group_type,color_json,theme}:ColorCardProps){
+    color_obj,color_string,colors_arr,color_key,setColors,group_type,color_json,theme,updateClass}:ColorCardProps){
     
 return (
     <div
@@ -36,6 +37,7 @@ return (
             group_type={group_type}
             value={color_string}
             bg_color={color_string}
+            updateClass={updateClass}
             init_color={color_obj}
             saveColor={() =>updateLocalStorageColorVariables(colorArrayToString(colors_arr),theme)}
            

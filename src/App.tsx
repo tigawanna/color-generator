@@ -10,7 +10,7 @@ import { useZustandTheme } from './utils/hooks/useZustandTheme'
 
 function App() {
 const{ThemeIcon,theme,toggleTheme}=useZustandTheme()
-
+useLoadCSSvars(theme)
   return (
     <div className="min-h-screen flex flex-col gap-2 items-center">
       <div className='w-full flex gap-3 sticky top-0 h-10  hover:undeline 

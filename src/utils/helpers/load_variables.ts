@@ -18,10 +18,10 @@ export function useLoadCSSvars(theme:"dark"|"light"){
         colors_arr.map(([key, value]) => {
             const {  color_string } = getcolorObjANdColorString(value)
             const parsed_hsl = hslStringToNewFormat(color_string);
-            if (typeof key === "string") {
-                document.documentElement.style.setProperty(key, parsed_hsl);
-            }
+            document.documentElement.style.setProperty(key, parsed_hsl);
+            
         })
+        console.log("theme changed ",theme)
     },[theme])
 
 
