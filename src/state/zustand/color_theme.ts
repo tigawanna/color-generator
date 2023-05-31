@@ -1,6 +1,7 @@
 import { cssVariablesToJson, default_variables } from '@/my-ui/color_themes/helpers';
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
+import { mountStoreDevtool } from 'simple-zustand-devtools';
 
 interface  ColorThemeState {
     mode: 'light' | 'dark';
@@ -11,7 +12,7 @@ interface  ColorThemeState {
     }
     updateColorVariables: (new_variable:string,mode: 'light' | 'dark') => void;
     color_json: { [key: string]: string };
-    updateColorJson: (key: string, value: string) => void
+    updateColorJson: (key: string, value: string) => void;
 }
 
 export const useColorThemeStore = create<ColorThemeState>()(
@@ -27,7 +28,8 @@ export const useColorThemeStore = create<ColorThemeState>()(
                 }
             })),
 
-            color_json:cssVariablesToJson(get()?.color_variables[get()?.mode??'light']??default_variables),
+            color_json:{},
+
             updateColorJson: (key: string, value: string) => set((state) => ({
                 color_json: {
                     ...state.color_json,
@@ -41,4 +43,10 @@ export const useColorThemeStore = create<ColorThemeState>()(
     )
 )
 
+mountStoreDevtool('Store', useColorThemeStore);
 
+function getColorJson(){
+    const color_json = cssVariablesToJson(default_variables)
+    console.log("get color varaible == ",color_json)
+    return color_json
+}

@@ -14,6 +14,7 @@ function App() {
       >
         <Link to="/">Home</Link>
         <Link to="/colors">Colors</Link>
+        <Link to="/about">About</Link>
       </div>
       <div className='flex gap-2 sticky top-2'>
         <ThemeIcon onClick={() => toggleTheme()} className='' />

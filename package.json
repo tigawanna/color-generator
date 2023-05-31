@@ -49,6 +49,7 @@
     "kleur": "^4.1.5",
     "postcss": "^8.4.23",
     "prettier-plugin-tailwindcss": "^0.2.8",
+    "simple-zustand-devtools": "^1.1.0",
     "tailwind-scrollbar": "^3.0.0",
     "tailwindcss": "^3.3.2",
     "tailwindcss-animate": "^1.0.5",

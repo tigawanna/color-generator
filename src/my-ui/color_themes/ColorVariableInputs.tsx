@@ -1,18 +1,24 @@
-import { useState } from "react";
-import { default_variables } from "./helpers";
+import { useContext, useEffect, useState } from "react";
+import { cssVariablesToJson, default_variables } from "./helpers";
 import { useColorThemeStore } from "@/state/zustand/color_theme";
-
+import { ColorJsonContext, useColorJsonContext } from "@/state/zustand/color_context";
+import { useStore } from 'zustand'
+import { useColorJsonStore } from "@/state/zustand/color_json";
 interface ColorVariablesProps {
 
 }
 
 export function ColorVariableInputs({ }: ColorVariablesProps) {
-    const{color_variables,updateColorVariables,mode,color_json} =useColorThemeStore()
-
+    const{color_variables,updateColorVariables,mode} =useColorThemeStore()
+    const colors  = useColorJsonContext((s)=>s.color_json)
+    
     function handleChange(e: any) {
         updateColorVariables(e.target.value,e.target.id)
     }
-     console.log(color_json)
+
+   
+
+console.log("color json == ", colors)
     return (
         <div className='w-full h-fit flex  items-center gap-3 p-5'>
             <div className="h-full w-full flex flex-col items-center">
