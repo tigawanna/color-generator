@@ -12,6 +12,7 @@ import {
   getcolorObjANdColorString,
   default_variables,
 } from "./helpers";
+import { ColorVariableInputs } from "./ColorVariableInputs";
 
 interface ColorsListProps {}
 
@@ -69,24 +70,26 @@ export function ColorList({}: ColorsListProps) {
           onClick={() => {
             copyToClipboard(colorArrayToString(colors_arr), updateNotification);
           }}
-          className="rounded-lg bg-secondary px-5 py-2 text-accent-foreground hover:brightness-125"
-        >
+          className="rounded-lg bg-secondary px-5 py-2 text-accent-foreground hover:brightness-125">
           save and copy to clipboard
         </button>
       </div>
 
-      <div className="flex w-full flex-wrap items-center justify-center gap-2 p-5">
+        <div className="w-full  flex flex-col-reverse md:flex-row justify-evenly  gap-2">
+          <ColorVariableInputs/>
+        <div className=" flex w-full flex-wrap h-[80vh] items-center justify-center gap-2 p-5 overflow-y-scroll">
         {grouped_variables.map(([key, value]) => {
           const is_pair = value.length === 2;
           return (
             <div
               key={key}
-              className="flex w-[90%]  flex-col gap-1 rounded-lg p-1 shadow shadow-accent-foreground md:w-[40%] "
+              className="flex w-[90%]  flex-col gap-1 rounded-lg p-1 shadow shadow-accent-foreground  "
             >
               <div className="font-bold">{key}</div>
               <div className="flex w-full flex-col gap-1 rounded md:flex-row">
                 {value.map(([key, value]) => {
-                  function variableprimaryorForeground(group_key: string) {
+               
+               function variableprimaryorForeground(group_key: string) {
                     const is_fore = group_key?.split("--")[1]?.split("-");
                     if (is_pair && is_fore.length === 1) {
                       return "primary";
@@ -117,6 +120,9 @@ export function ColorList({}: ColorsListProps) {
           );
         })}
       </div>
+
+      </div>
+
     </div>
   );
 }
