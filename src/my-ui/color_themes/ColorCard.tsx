@@ -23,7 +23,7 @@ export function ColorCard({color_obj,color_string,colors_arr,color_key,setColors
 return (
     <div
         style={{ borderColor: color_string }}
-        className="flex w-full flex-col items-center justify-center gap-2 rounded-lg">
+        className="flex  items-center justify-center gap-2 rounded-lg">
         <div className="w-full px-2 text-sm">{color_key}</div>
 
         <ColorEditble

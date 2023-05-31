@@ -4,6 +4,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { hslObjectToStringtinyColor, hslStringToNewFormat } from "./colors";
 import { getReadableColor, getcolorObjANdColorString } from "./helpers";
+import { Tooltipwrapper } from "../shared/Tooltipwrapper";
 
 interface ColorEditProps {
   color_key: string;
@@ -67,10 +68,16 @@ export function ColorEditble({
       trigger={
         <div
           onClick={() => setOpen(true)}
-          style={{ backgroundColor: bg_color }}
-          className="h-full w-full cursor-pointer px-2 py-1 text-sm hover:scale-105 hover:brightness-150"
-          >
-          <div className="w-fit rounded-xl bg-slate-900 text-slate-50 p-1 px-2">{value}</div>
+        className="h-full  cursor-pointer px-2 py-1 text-sm hover:brightness-150 flex">
+
+      <div className="w-4 h-4">
+            <Tooltipwrapper message={value}>
+              <div
+                style={{ backgroundColor: bg_color }}
+                className="h-4 w-4 rounded-xl  p-1 px-2"></div>
+            </Tooltipwrapper>
+      </div>
+
         </div>
       }>
 
