@@ -1,12 +1,7 @@
-import { hslStringToNewFormat } from "@/my-ui/color_themes/colors";
-import {
-  CSSVariableList,
-  cssVariablesToJson,
-  getcolorObjANdColorString,
-} from "@/my-ui/color_themes/helpers";
 import { useColorThemeStore } from "@/state/zustand/color_theme";
-import { useRouter } from "@tanstack/router";
 import { useEffect, useState } from "react";
+import { hslStringToNewFormat } from "./colors";
+import { cssVariablesToJson, CSSVariableList, getcolorObjANdColorString } from "./helpers";
 
 export function useLoadCSSvars() {
   // const [color_variables, setColovariables] = useState(() => {

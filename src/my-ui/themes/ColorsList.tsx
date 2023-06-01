@@ -1,8 +1,8 @@
 
 import { ColorEditble } from "./ColorEdit";
-import { hslStringToNewFormat } from "./colors";
-import { CSSVariableList, cssVariablesToJson, groupByVariableName } from "./helpers";
-import { getcolorObjANdColorString, colorArrayToString } from "./helpers";
+import { hslStringToNewFormat } from "../../utils/helpers/colors";
+import { CSSVariableList, cssVariablesToJson, groupByVariableName } from "../../utils/helpers/helpers";
+import { getcolorObjANdColorString, colorArrayToString } from "../../utils/helpers/helpers";
 import { useColorThemeStore } from "@/state/zustand/color_theme";
 import { useEffect, useState } from "react";
 

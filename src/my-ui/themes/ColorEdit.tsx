@@ -8,8 +8,8 @@ import {
 import { DialogWrapper } from "../../shadcn/DialogWrapper";
 import { useState } from "react";
 import { X } from "lucide-react";
-import { hslObjectToStringtinyColor, hslStringToNewFormat } from "./colors";
-import { getReadableColor, getcolorObjANdColorString } from "./helpers";
+import { hslObjectToStringtinyColor, hslStringToNewFormat } from "../../utils/helpers/colors";
+import { getReadableColor, getcolorObjANdColorString } from "../../utils/helpers/helpers";
 import { Tooltipwrapper } from "../shared/Tooltipwrapper";
 
 
