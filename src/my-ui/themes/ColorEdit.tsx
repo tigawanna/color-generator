@@ -97,7 +97,7 @@ export function ColorEditble({
       }
     >
       <div
-        className="fixed bottom-0 left-0 right-0 top-0 z-30 flex h-full w-full items-center 
+        className="fixed bottom-0 left-0 right-0 top-0 z-30 flex h-full w-[90%] items-center 
         justify-center bg-slate-900 bg-opacity-60 text-slate-50"
       >
         <div className="relative flex items-center justify-center  ">
@@ -106,7 +106,7 @@ export function ColorEditble({
               saveColor();
               setOpen(false);
             }}
-            className="absolute right-3 top-2 flex cursor-pointer items-center justify-center rounded-full bg-slate-900 p-2 text-slate-50 hover:bg-red-800"
+            className="absolute right-[2%] top-2 flex cursor-pointer items-center justify-center rounded-full bg-slate-900 p-2 text-slate-50 hover:bg-red-800"
           >
             <X size={20} />
           </div>
@@ -115,7 +115,7 @@ export function ColorEditble({
             className="flex h-full w-full flex-col items-center justify-center gap-5  rounded-lg p-5"
           >
             <div className="rounded-lg px-2 py-1">
-              <div className="rounded-lg bg-slate-900 p-1 px-2 text-slate-50">
+              <div className="rounded-lg bg-slate-900 p-1 px-2 text-xs text-slate-50">
                 {color_key} {" : "} {calculated_hsl_bg}
               </div>
               <div

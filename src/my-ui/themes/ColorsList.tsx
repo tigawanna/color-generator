@@ -25,7 +25,7 @@ export function ColorsList({}: ColoListProps) {
   
 
   return (
-    <div className="flex h-full w-full items-center justify-center">
+    <div className="flex h-full md:w-[40%] w-[95%] items-center justify-center">
       <div className=" flex h-[80vh] w-full flex-wrap items-center justify-center gap-2 overflow-y-scroll p-5">
         {grouped_variables.map(([key, value]) => {
           const is_pair = value.length === 2;

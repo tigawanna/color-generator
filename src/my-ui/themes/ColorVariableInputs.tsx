@@ -16,7 +16,7 @@ export function ColorVariableInputs({}: ColorVariablesProps) {
   }
 
   return (
-    <div className="">
+    <div className="h-fit">
       <DialogWrapper
         trigger={
           <button className="rounded-lg bg-secondary px-5 py-2 text-accent-foreground hover:bg-accent hover:brightness-150">
