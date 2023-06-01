@@ -5,6 +5,7 @@ import { useZustandTheme } from "./utils/hooks/useZustandTheme";
 
 function App() {
   const { ThemeIcon, mode, toggleTheme } = useZustandTheme()
+  // console.log("theme == ",mode)
   useLoadCSSvars();
   return (
     <div className="flex min-h-screen flex-col items-center gap-2">

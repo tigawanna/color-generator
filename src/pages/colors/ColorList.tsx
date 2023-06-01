@@ -21,7 +21,7 @@ export function Colors({ }: ColorsProps) {
 }
 
 function getColorJson(cvr: string) {
-  const color_json = cssVariablesToJson(default_variables)
+  const color_json = cssVariablesToJson(cvr??default_variables)
   // console.log("get color varaible == ", color_json)
   return color_json
 }

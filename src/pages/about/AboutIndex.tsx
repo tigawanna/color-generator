@@ -1,4 +1,3 @@
-import { AccordionDemo } from "@/components/AccordionDemo";
 import { AboutColor } from "@/my-ui/about/aboutColor";
 import { BearContext, createBearStore } from "@/my-ui/about/about_context";
 import { useRef } from "react";

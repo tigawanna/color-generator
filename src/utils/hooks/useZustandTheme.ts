@@ -34,6 +34,7 @@ export function useZustandTheme() {
     const nextTheme = mode === "dark" ? "light" : "dark";
     const ThemeIcon = mode === "dark" ? Sun : Moon;
     const toggleTheme = () => {
+        console.log("next theme", nextTheme)
         updateMode(nextTheme);
     };
 

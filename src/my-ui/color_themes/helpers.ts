@@ -38,6 +38,9 @@ export const default_variables = `
  
     --ring: 215 20.2% 65.1%;`;
 
+
+    
+
 export function cssVariablesToJson(data: string) {
   // Step 1: Split the data string into an array of lines using the split() method.
   const lines = data?.split("\n");

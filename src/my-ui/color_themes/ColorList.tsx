@@ -59,11 +59,12 @@ export function ColorList({}: ColorsListProps) {
             </button>
           }
         >
-          <textarea
+          {/* <textarea
             className="h-auto min-h-[500px] w-full rounded-lg  bg-secondary p-5  shadow-md outline-none"
             value={color_variables}
             onChange={(e) => setColovariables(e.target.value)}
-          />
+          /> */}
+          <ColorVariableInputs />
         </DialogWrapper>
 
         <button
@@ -76,7 +77,7 @@ export function ColorList({}: ColorsListProps) {
       </div>
 
         <div className="w-full  flex flex-col-reverse md:flex-row justify-evenly  gap-2">
-          <ColorVariableInputs/>
+     
         <div className=" flex w-full flex-wrap h-[80vh] items-center justify-center gap-2 p-5 overflow-y-scroll">
         {grouped_variables.map(([key, value]) => {
           const is_pair = value.length === 2;
