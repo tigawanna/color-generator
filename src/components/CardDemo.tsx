@@ -32,7 +32,7 @@ type CardProps = React.ComponentProps<typeof Card>;
 
 export function CardDemo({ className, ...props }: CardProps) {
   return (
-    <Card className={cn("w-[90%]", className)} {...props}>
+    <Card className={cn("w-full", className)} {...props}>
       <CardHeader>
         <CardTitle>Notifications</CardTitle>
         <CardDescription>You have 3 unread messages.</CardDescription>

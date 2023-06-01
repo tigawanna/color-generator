@@ -9,7 +9,7 @@ import {
 // "c:/Users/denni/Desktop/code/vite/vite-template/src/components/ui/accordion"
 export function AccordionDemo() {
   return (
-    <Accordion type="single" collapsible className="w-[90%]">
+    <Accordion type="single" collapsible className="w-[70%]">
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>

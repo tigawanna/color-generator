@@ -13,7 +13,7 @@ function App() {
         className="hover:undeline sticky top-0 flex h-10 w-full  gap-3 
       border-b bg-secondary p-3 hover:text-accent-foreground"
       >
-        <Link to="/">Home</Link>
+        {/* <Link to="/">Home</Link> */}
       
       </div>
       <div className='flex gap-2 sticky top-2'>
