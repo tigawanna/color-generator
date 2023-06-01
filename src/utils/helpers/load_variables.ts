@@ -25,5 +25,5 @@ export function useLoadCSSvars() {
         document.documentElement.style.setProperty(key, parsed_hsl);
       }
     });
-  }, [mode]);
+  }, []);
 }

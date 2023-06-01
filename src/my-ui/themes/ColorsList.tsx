@@ -1,5 +1,6 @@
-import { useColorJsonContext } from "@/state/zustand/color_context";
+
 import { ColorEditble } from "./ColorEdit";
+import { hslStringToNewFormat } from "./colors";
 import { CSSVariableList, cssVariablesToJson, groupByVariableName } from "./helpers";
 import { getcolorObjANdColorString, colorArrayToString } from "./helpers";
 import { useColorThemeStore } from "@/state/zustand/color_theme";
@@ -11,17 +12,18 @@ export function ColorsList({}: ColoListProps) {
 
   const{color_variables_obj,mode,updateColorVariables}=useColorThemeStore()  
   const [color_json, setColors] = useState(cssVariablesToJson(color_variables_obj[mode]))
-
+    
   useEffect(() => {
-// setColors(color_variables_obj)
-    setColors(cssVariablesToJson(color_variables_obj[mode]))
-//   console.log(color_variables_obj[mode])
-  },[mode])
+        // setColors(color_variables_obj)
+        setColors(cssVariablesToJson(color_variables_obj[mode]))
 
-
-
+    }, [mode])
+  
+  
   const colors_arr = Object.entries(color_json) as unknown as CSSVariableList;
   const grouped_variables = Object.entries(groupByVariableName(colors_arr));
+  
+
   return (
     <div className="flex h-full w-full items-center justify-center">
       <div className=" flex h-[80vh] w-full flex-wrap items-center justify-center gap-2 overflow-y-scroll p-5">

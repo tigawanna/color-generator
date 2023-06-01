@@ -18,7 +18,10 @@ function App() {
         <Link to="/about">About</Link>
       </div>
       <div className='flex gap-2 sticky top-2'>
-        <ThemeIcon onClick={() => toggleTheme()} className='' />
+        <ThemeIcon onClick={() => {
+          toggleTheme()
+          window.location.reload()
+          }} className='' />
       </div>
       <Outlet />
       <div className="fixed bottom-3 flex w-full items-center justify-center">

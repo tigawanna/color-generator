@@ -16,7 +16,7 @@ export function ColorVariableInputs({}: ColorVariablesProps) {
   }
 
   return (
-    <div className=" ">
+    <div className="">
       <DialogWrapper
         trigger={
           <button className="rounded-lg bg-secondary px-5 py-2 text-accent-foreground hover:bg-accent hover:brightness-150">
@@ -27,7 +27,7 @@ export function ColorVariableInputs({}: ColorVariablesProps) {
           <h3 className="p-1 text-lg font-bold capitalize">{mode}</h3>
           <textarea
             id={mode}
-            className="h-full min-h-[70vh] w-full rounded-md p-3 outline-none"
+            className="h-full min-h-[70vh] w-full rounded-md p-5 outline-none "
             value={color_variables_obj[mode]}
             onChange={handleChange}
           />
