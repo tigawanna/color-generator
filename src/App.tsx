@@ -1,8 +1,8 @@
-import { Link, Outlet, useRouter } from "@tanstack/router";
+import { Link, Outlet } from "@tanstack/router";
 import { Notification } from "./my-ui/shared/Notification";
 import { useLoadCSSvars } from "./utils/helpers/load_variables";
 import { useZustandTheme } from "./utils/hooks/useZustandTheme";
-import { useEffect } from "react";
+
 
 function App() {
   const { ThemeIcon, mode, toggleTheme } = useZustandTheme()

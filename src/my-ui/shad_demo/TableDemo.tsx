@@ -65,7 +65,7 @@ function getData() {
 export function TableDemo() {
   const data = getData();
   return (
-    <div className="container mx-auto py-10">
+    <div className="w-full flex-grow container mx-auto py-10">
       {/* @ts-expect-error */}
       <DataTable columns={columns} data={data} />
     </div>
