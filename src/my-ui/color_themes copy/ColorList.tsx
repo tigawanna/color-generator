@@ -14,17 +14,14 @@ import {
 } from "./helpers";
 import { ColorVariableInputs } from "./ColorVariableInputs";
 import { useColorJsonContext } from "@/state/zustand/color_context";
-import { useColorThemeStore } from "@/state/zustand/color_theme";
 
 interface ColorsListProps {}
 
 export function ColorList({}: ColorsListProps) {
   const { updateNotification } = useNotificationStore();
-  const{color_variables_obj,mode}=useColorThemeStore()
-  const color_variables = color_variables_obj[mode]
-  // const [color_variables, setColovariables] = useState(() => {
-  //   return localStorage.getItem("color_variables") || default_variables;
-  // });
+  const [color_variables, setColovariables] = useState(() => {
+    return localStorage.getItem("color_variables") || default_variables;
+  });
 
   const [_, setColors] = useState(cssVariablesToJson(color_variables));
   const color_json = useColorJsonContext((s) => s.color_json)

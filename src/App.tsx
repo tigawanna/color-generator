@@ -1,11 +1,11 @@
-import { Link, Outlet } from "@tanstack/router";
+import { Link, Outlet, useRouter } from "@tanstack/router";
 import { Notification } from "./my-ui/shared/Notification";
 import { useLoadCSSvars } from "./utils/helpers/load_variables";
 import { useZustandTheme } from "./utils/hooks/useZustandTheme";
+import { useEffect } from "react";
 
 function App() {
   const { ThemeIcon, mode, toggleTheme } = useZustandTheme()
-  // console.log("theme == ",mode)
   useLoadCSSvars();
   return (
     <div className="flex min-h-screen flex-col items-center gap-2">

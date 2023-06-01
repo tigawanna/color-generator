@@ -7,7 +7,7 @@ import { devtools } from '@pavlobu/zustand/middleware'
 interface  ColorThemeState {
     mode: 'light' | 'dark';
     updateMode: (mode: 'light' | 'dark') => void;
-    color_variables:{
+    color_variables_obj:{
         light: string;
         dark: string;
     }
@@ -27,10 +27,10 @@ export const useColorThemeStore = create<ColorThemeState>()(
            return {
             mode: get()?.mode ?? 'light',
             updateMode: (mode) => set({ mode }),
-            color_variables:getInitColorVariables(get),
+            color_variables_obj:getInitColorVariables(get),
             updateColorVariables:(new_var,mode)=>set((state)=>({
-                color_variables:{
-                    ...state.color_variables,
+                color_variables_obj:{
+                    ...state.color_variables_obj,
                     [mode]:new_var
                 }
             })),
@@ -62,6 +62,6 @@ function getColorJson(){
 
 function getInitColorVariables(get:() => ColorThemeState){
 const mode = get()?.mode ?? 'light'
-const saved_variables = get()?.color_variables
+const saved_variables = get()?.color_variables_obj
 return saved_variables??{"dark":default_variables,"light":default_variables}
 }

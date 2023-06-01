@@ -31,8 +31,8 @@ function reducer(state: ColorJsonState, action: ColorJsonAction) {
 }
 
 export function useColorJsonReducer() {
-    const{color_variables,mode}=useColorThemeStore()
-    const color_json = cssVariablesToJson(color_variables[mode]??default_variables)
+    const{color_variables_obj,mode}=useColorThemeStore()
+    const color_json = cssVariablesToJson(color_variables_obj[mode]??default_variables)
     const initialState: ColorJsonState = {
         color_json
     };

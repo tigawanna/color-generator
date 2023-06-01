@@ -8,7 +8,8 @@ interface ColorJsonProps {
 }
 
 interface ColorJsonState extends ColorJsonProps {
-    updateColorJson: (key: string, value: string) => void
+    updateColorJson: (key: string, value: string) => void ;
+    updateAllColorJson: (color_json:{ [key: string]: string }) => void;
 }
 
 type ColorJsonStore = ReturnType<typeof colorJsonStore>
@@ -26,6 +27,10 @@ export const colorJsonStore = (initProps?: Partial<ColorJsonProps>) => {
                 [key]: value
             }
         })),
+        updateAllColorJson: (color_json:{ [key: string]: string }) => set((state) => ({
+            ...state,
+            ...color_json
+        }))
 
     }))
 }

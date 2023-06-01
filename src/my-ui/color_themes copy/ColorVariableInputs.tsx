@@ -6,7 +6,7 @@ interface ColorVariablesProps {
 }
 
 export function ColorVariableInputs({ }: ColorVariablesProps) {
-    const{color_variables_obj,updateColorVariables,mode} =useColorThemeStore()
+    const{color_variables,updateColorVariables,mode} =useColorThemeStore()
     const colors  = useColorJsonContext((s)=>s.color_json)
     
     // console.log("color mode in form  === ", mode)
@@ -26,7 +26,7 @@ export function ColorVariableInputs({ }: ColorVariablesProps) {
                 <textarea
                 id={mode}
                 className="w-full h-full min-h-[70vh] p-3 rounded-md outline-none" 
-                value={color_variables_obj[mode]} 
+                value={color_variables[mode]} 
                 onChange={handleChange} />
             </div>
 
