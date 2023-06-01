@@ -14,8 +14,7 @@ function App() {
       border-b bg-secondary p-3 hover:text-accent-foreground"
       >
         <Link to="/">Home</Link>
-        <Link to="/colors">Colors</Link>
-        <Link to="/about">About</Link>
+      
       </div>
       <div className='flex gap-2 sticky top-2'>
         <ThemeIcon onClick={() => {
